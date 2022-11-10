@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edd2ddc99d687fc4d96433765352c4ec, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: d52d695e2851cbc4fac3c7c1b0a70e2e, type: 3}
+  m_Name: New Level Chunk Data
   m_EditorClassIdentifier: 
-  forwardSpeed: 12
-  rotationSpeed: 20
-  horizontalSpeed: 0.5
-  playerCoins: 10
-  radius: 10
-  animationDuration: 0.5
+  chunkSize: {x: 10, y: 25}
+  levelChunks:
+  - {fileID: 4965634682862117165, guid: 2278562ca9e2318428af5cbb31639429, type: 3}
+  entryDirection: 2
+  exitDirection: 0
