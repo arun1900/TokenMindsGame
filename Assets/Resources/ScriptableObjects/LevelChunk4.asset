@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d52d695e2851cbc4fac3c7c1b0a70e2e, type: 3}
-  m_Name: New Level Chunk Data
+  m_Name: LevelChunk4
   m_EditorClassIdentifier: 
   chunkSize: {x: 10, y: 25}
   levelChunks:

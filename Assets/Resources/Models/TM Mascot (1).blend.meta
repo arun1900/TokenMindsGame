@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: 3b5d1ba45979abe4783edead6f6aadf4
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'RightUpperLeg' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: TM Mascot (1)(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Camera
+      parentName: TM Mascot (1)(Clone)
+      position: {x: -7.5, y: 0.02000004, z: 0}
+      rotation: {x: -0.000000015454312, y: 0.7071068, z: 0.000000015454308, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Body
+      parentName: TM Mascot (1)(Clone)
+      position: {x: -0, y: 1.2703569, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 0.31084508, y: 0.31084508, z: 0.31084508}
+    - name: Metal Neck
+      parentName: Body
+      position: {x: -0, y: 0, z: 0.081436634}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9243513, y: 0.9243513, z: 0.9243513}
+    - name: K Logo
+      parentName: Body
+      position: {x: -1.4274039, y: -0.25317046, z: -0.7291553}
+      rotation: {x: 0.000000016755873, y: -0.642054, z: 0.000000014032534, w: 0.76665944}
+      scale: {x: 0.34151787, y: 0.34151784, z: 0.34151787}
+    - name: Hand R
+      parentName: Body
+      position: {x: -0, y: 1.9845134, z: -1.2140682}
+      rotation: {x: 0.20791171, y: 0, z: -0, w: 0.9781476}
+      scale: {x: 0.4181596, y: 0.2763927, z: 1.1356816}
+    - name: Hand L
+      parentName: Body
+      position: {x: -0, y: -1.9845134, z: -1.2140682}
+      rotation: {x: -0.20791171, y: 0, z: -0, w: 0.9781476}
+      scale: {x: 0.4181596, y: 0.2763927, z: 1.1356816}
+    - name: Gravity Neck
+      parentName: Body
+      position: {x: -0, y: 0, z: 0.002403736}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.4614295, y: 0.4614295, z: 0.36611754}
+    - name: Body Cover Line
+      parentName: Body
+      position: {x: -0, y: 0, z: 0.07442713}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0507499, y: 1.0772659, z: 1.0507499}
+    - name: Body Cover
+      parentName: Body
+      position: {x: -0, y: 0, z: -0.027542114}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0586069, y: 1.0586069, z: 1.0586069}
+    - name: Body.001
+      parentName: TM Mascot (1)(Clone)
+      position: {x: -0, y: 1.2703569, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 0.31084508, y: 0.31084508, z: 0.31084508}
+    - name: Body Cover.001
+      parentName: Body.001
+      position: {x: -0, y: 0, z: -0.027542114}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0586069, y: 1.0586069, z: 1.0586069}
+    - name: Cylinder.002
+      parentName: TM Mascot (1)(Clone)
+      position: {x: -0, y: 2.3000002, z: 0}
+      rotation: {x: 0.7071068, y: 0.000000053385076, z: -0.70710677, w: 0.00000005338508}
+      scale: {x: 0.8392159, y: 0.8392159, z: 0.8392159}
+    - name: Cylinder.003
+      parentName: TM Mascot (1)(Clone)
+      position: {x: 0.049999952, y: 2.3000002, z: 0}
+      rotation: {x: 0.7071068, y: 0.000000053385076, z: -0.70710677, w: 0.00000005338508}
+      scale: {x: 0.8392159, y: 0.8392159, z: 0.8392159}
+    - name: Body.002
+      parentName: TM Mascot (1)(Clone)
+      position: {x: -0, y: 1.2703569, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 0.31084508, y: 0.31084508, z: 0.31084508}
+    - name: Cube.003
+      parentName: TM Mascot (1)(Clone)
+      position: {x: -0.055127725, y: 2.450146, z: 0.21531594}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 0.3, y: 0.4, z: 1.75}
+    - name: Cube.004
+      parentName: TM Mascot (1)(Clone)
+      position: {x: -0.055127725, y: 2.450146, z: -0.18468416}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 0.3, y: 0.4, z: 1.75}
+    - name: Torus.001
+      parentName: TM Mascot (1)(Clone)
+      position: {x: -0.055127755, y: 2.20675, z: 0.01531589}
+      rotation: {x: 0.5, y: 0.5, z: -0.5, w: -0.49999997}
+      scale: {x: 0.36805713, y: 0.36805713, z: 0.36805713}
+    - name: Cylinder.004
+      parentName: TM Mascot (1)(Clone)
+      position: {x: -0.005127743, y: 2.350146, z: 0.01531589}
+      rotation: {x: 0.7071068, y: 0.000000053385076, z: -0.70710677, w: 0.00000005338508}
+      scale: {x: 0.8392159, y: 0.8392159, z: 0.8392159}
+    - name: Cylinder.005
+      parentName: TM Mascot (1)(Clone)
+      position: {x: 0.04487221, y: 2.350146, z: 0.01531589}
+      rotation: {x: 0.7071068, y: 0.000000053385076, z: -0.70710677, w: 0.00000005338508}
+      scale: {x: 0.8392159, y: 0.8392159, z: 0.8392159}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
