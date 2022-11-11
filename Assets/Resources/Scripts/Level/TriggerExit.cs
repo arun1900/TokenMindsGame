@@ -5,8 +5,9 @@ namespace Resources.Scripts.Level
 {
     public class TriggerExit : MonoBehaviour
     {
-        public float delay = 5f;
-    
+        public float delay = 3f;
+
+        public LevelChunkData thisChunkData;
         public delegate void ExitAction();
         public static event ExitAction OnChunkExited;
 
@@ -32,8 +33,10 @@ namespace Resources.Scripts.Level
         {
             yield return new WaitForSeconds(delay);
 
-            transform.root.gameObject.SetActive(false);
-
+            GameObject o;
+            (o = transform.root.gameObject).SetActive(false);
+            _exited = false;
+            ServicePool.Instance.ReturnItem(thisChunkData.name,o);
         }
 
 

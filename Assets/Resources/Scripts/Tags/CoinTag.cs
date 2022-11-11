@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Resources.Scripts;
@@ -10,8 +11,13 @@ public class CoinTag : MonoBehaviour
         var playerTag = other.GetComponent<PlayerTag>();
         if (playerTag)
         {
-            Destroy(gameObject);
+            this.gameObject.SetActive(false);
+            Invoke(nameof(EnableCoin),2f);
         }
     }
 
+    private void EnableCoin()
+    {
+        gameObject.SetActive(true);
+    }
 }

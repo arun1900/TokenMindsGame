@@ -12,7 +12,7 @@ namespace Resources.Scripts
         // ReSharper disable once FieldCanBeMadeReadOnly.Local
         private Dictionary<string, List<PoolingItem<T>>> _itemsToPool = new Dictionary<string, List<PoolingItem<T>>>();
 
-        protected virtual T GetItem(string key)
+        public virtual T GetItem(string key)
         {
             if (_itemsToPool.Count <= 0) return CreateNewPooledItem(key);
             if (!_itemsToPool.ContainsKey(key)) return CreateNewPooledItem(key);
@@ -26,7 +26,8 @@ namespace Resources.Scripts
         public virtual void ReturnItem(string key,T item)
         {
             PoolingItem<T> poolingItem = _itemsToPool[key].Find(i => i.Item.Equals(item));
-            poolingItem.IsActive = false;
+            if (poolingItem != null)
+                poolingItem.IsActive = false;
             //Debug.Log("Returned Item to pool");
         }
 

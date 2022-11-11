@@ -57,9 +57,13 @@ namespace Resources.Scripts.Level
         {
             LevelChunkData chunkToSpawn = PickNextChunk();
 
-            GameObject objectFromChunk = chunkToSpawn.levelChunks[Random.Range(0, chunkToSpawn.levelChunks.Length)];
+            //GameObject objectFromChunk = chunkToSpawn.levelChunks[Random.Range(0, chunkToSpawn.levelChunks.Length)];
             _previousChunk = chunkToSpawn;
-            Instantiate(objectFromChunk, _spawnPosition + spawnOrigin, Quaternion.identity);
+            var objectFromChunk = ServicePool.Instance.GetItem(chunkToSpawn.name);
+            objectFromChunk.GetComponentInChildren<TriggerExit>().thisChunkData = chunkToSpawn;
+            objectFromChunk.transform.position = _spawnPosition + spawnOrigin;
+            objectFromChunk.SetActive(true);
+            //Instantiate(objectFromChunk, _spawnPosition + spawnOrigin, Quaternion.identity);
 
         }
 
