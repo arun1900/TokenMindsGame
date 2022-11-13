@@ -1,5 +1,8 @@
-
+using System.Collections;
+using Resources.Scripts.Tags;
+using Resources.Scripts.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Resources.Scripts
 {
@@ -9,6 +12,7 @@ namespace Resources.Scripts
         public Transform player;
 
         [SerializeField] private PlayerData playerData;
+        [SerializeField] private Text playerCoinsField;
         public int playerCoins;
         public float animDuration;
         public float xMin = 0.15f, xMax = 0.85f;
@@ -25,8 +29,7 @@ namespace Resources.Scripts
     
         private bool _isLevelStarted;
         private bool _isLevelEnded;
-        public bool isFreeRotateActive;
-
+        private int _currentLevel = 1;
 
         [field: Header("Settings")] 
         private float HorizontalSpeed { get; set; }
@@ -36,6 +39,15 @@ namespace Resources.Scripts
         private void Awake()
         {
             InitializeData();
+            _currentLevel = PlayerPrefs.GetInt("level");
+
+        }
+
+        private void OnEnable()
+        {
+            CoinTag.OnCoinTriggered += IncreasePlayerCoins;
+            ObstacleTag.OnObstacleHit += DecreaseHealth;
+            ServiceLobby.OnResetTriggered += ResetPlayerStats;
         }
 
         private void InitializeData()
@@ -62,7 +74,13 @@ namespace Resources.Scripts
         }
         private void Update()
         {
-            //if (!_isLevelStarted || _isLevelEnded) return;
+            if ( !_isLevelStarted && Input.touchCount > 0)
+            {
+                _isLevelStarted = true;
+                ServiceLobby.Instance.CloseWindow(WindowType.TapToPlay);
+            }
+            
+            if (!_isLevelStarted) return;
             if (Input.touchCount == 1)
             {
                 _touch = Input.GetTouch(0);
@@ -108,7 +126,7 @@ namespace Resources.Scripts
             }
             // player.DOLocalRotate(
             //     Mathf.Abs(_horizontal) < 1 ? Vector3.zero : new Vector3(0, _horizontal * RotationSpeed, 0), .3f);
-         
+          
             target.Translate(transform.forward * ForwardSpeed * Time.deltaTime);
         }
 
@@ -118,6 +136,35 @@ namespace Resources.Scripts
             pos.x = Mathf.Clamp01(pos.x);
             pos.x = Mathf.Clamp(pos.x, xMin, xMax);
             target.position = _mainCam.ViewportToWorldPoint(pos);
+        }
+
+        private void IncreasePlayerCoins()
+        {
+            StartCoroutine(StartIncreasing(2));
+        }
+
+        private IEnumerator StartIncreasing(int coins)
+        {
+            var wait = new WaitForSeconds(0.2f);
+            for (var i = coins; i > 0; i--)
+            {
+                playerData.playerCoins += 1;
+                playerCoinsField.text = playerData.playerCoins.ToString();
+                if (playerData.playerCoins >= 100)
+                {
+                    ServiceLobby.Instance.AppearWindow(WindowType.NextLevel);
+                    _currentLevel++;
+                    PlayerPrefs.SetInt("level",_currentLevel);
+
+                    this.enabled = false;
+                    // playerData.playerCoins = 0;
+                    // playerData.playerHealth = 3;
+                    
+                }
+                yield return wait;
+                
+            }
+            yield return null;
         }
 
         private void CalculateInputs()
@@ -147,16 +194,45 @@ namespace Resources.Scripts
             }
         }
 
+      
+#if UNITY_EDITOR
+        private void OnApplicationQuit()
+        {
+            playerData.playerCoins = 0;
+            playerData.playerHealth = 3;
+        }
+        
+#endif
+        private void ResetPlayerStats()
+        {
+            playerData.playerCoins = 0;
+            playerData.playerHealth = 3;
+        }
+        
         private void OnDisable()
         {
+            CoinTag.OnCoinTriggered -= IncreasePlayerCoins;
+            ObstacleTag.OnObstacleHit -= DecreaseHealth;
+            ServiceLobby.OnResetTriggered -= ResetPlayerStats;
             // GameManager.Instance.OnLevelEnd -= SetLevelEnd;
             // GameManager.Instance.OnLevelStart -= SetLevelStart;
         }
 
 
-  
+
 
         private void SetLevelEnd(bool status) => _isLevelEnded = status;
         private void SetLevelStart(bool status) => _isLevelStarted = status;
+
+        private void DecreaseHealth(int dmg)
+        {
+            playerData.playerHealth -= dmg;
+            ServiceLobby.Instance.UpdateHealthUI(playerData.playerHealth);
+            if (playerData.playerHealth <= 0)
+            {
+                ServiceLobby.Instance.AppearWindow(WindowType.GameOver);
+                this.enabled = false;
+            }
+        }
     }
 }

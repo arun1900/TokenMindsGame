@@ -9,6 +9,7 @@ namespace Resources.Scripts
         public float rotationSpeed = 0f;
         public float horizontalSpeed = 0f;
         public int playerCoins;
+        public int playerHealth;
         public float radius;
         public float animationDuration = 0f;
     }

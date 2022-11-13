@@ -1,23 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Resources.Scripts;
 using UnityEngine;
 
-public class CoinTag : MonoBehaviour
+namespace Resources.Scripts.Tags
 {
-    private void OnTriggerEnter(Collider other)
+    public class CoinTag : MonoBehaviour
     {
-        var playerTag = other.GetComponent<PlayerTag>();
-        if (playerTag)
+        
+        public delegate void CoinTriggerAction();
+        public static event CoinTriggerAction OnCoinTriggered;
+        private void OnTriggerEnter(Collider other)
         {
-            this.gameObject.SetActive(false);
+            var playerTag = other.GetComponent<PlayerTag>();
+            if (!playerTag) return;
+            gameObject.SetActive(false);
+            OnCoinTriggered?.Invoke();
             Invoke(nameof(EnableCoin),2f);
         }
-    }
 
-    private void EnableCoin()
-    {
-        gameObject.SetActive(true);
+        private void EnableCoin()
+        {
+            gameObject.SetActive(true);
+        }
     }
 }
